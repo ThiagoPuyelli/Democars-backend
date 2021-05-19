@@ -38,6 +38,6 @@
     "typescript": "^4.2.4"
   },
   "husky": {
-    "pre-commit": "npm lint"
+    "pre-commit": "npm run lint"
   }
 }
