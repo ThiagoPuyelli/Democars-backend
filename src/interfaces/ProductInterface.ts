@@ -1,25 +1,30 @@
-import UserInterface from './UserInterface'
-
-export type categories = 'Rines' | 'Audio' | 'Body Kits' | 'Accesorios'
+import { Document } from 'mongoose'
 
 export interface CommentInterface {
-    user: UserInterface;
+    _id?: string;
+    userID: string;
     comment: string;
+    date: number;
 }
 
 export interface ReviewInterface {
-    user: UserInterface;
-    description: string;
+    _id?: string
+    userID: string;
+    review: string;
     rating: number;
     date: number;
 }
 
-interface ProductInterface {
+interface ProductInterface extends Document {
     title: string;
     description: string;
     price: number;
-    categories: categories;
+    categories: string[];
+    image: string;
     comments: [CommentInterface];
+    reviews: ReviewInterface[];
+    date: number;
+    rating: number;
 }
 
 export default ProductInterface

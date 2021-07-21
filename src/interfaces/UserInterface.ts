@@ -1,12 +1,32 @@
-import ProductInterface from './ProductInterface'
+import { Document } from 'mongoose'
 
-interface UserInterface {
+interface CodePassword {
+    code: string;
+    date: number;
+}
+
+interface CartProduct {
+    _id?: string;
+    productID: string;
+    price: number;
+    amount: number;
+}
+
+interface FavouriteProduct {
+    _id?: string;
+    productID;
+}
+
+interface UserInterface extends Document {
     name: string;
     lastname: string;
     email: string;
     password: string;
-    favourites: [ProductInterface];
-    cart: [ProductInterface];
+    role: string;
+    favourites: [FavouriteProduct];
+    cart: [CartProduct];
+    codePassword: CodePassword;
+    image?: string;
 }
 
 export default UserInterface
